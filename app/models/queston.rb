@@ -1,0 +1,2 @@
+class Queston < ApplicationRecord
+end
