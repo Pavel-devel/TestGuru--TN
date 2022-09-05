@@ -2,8 +2,8 @@ class CreateQuestons < ActiveRecord::Migration[7.0]
   def change
     create_table :questons do |t|
       t.string :title, null: false
-      t.string :correct, null: false, default: 0
-      t.integer :tests_id
+      t.boolean :correct, null: false
+      t.reference :test_id, null: false, foreign_key: true
 
       t.timestamps
     end
