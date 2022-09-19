@@ -25,13 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_115341) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questons", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string "title", null: false
     t.boolean "correct", default: true, null: false
     t.integer "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_questons_on_test_id"
+    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_115341) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "questons", "tests"
+  add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end
