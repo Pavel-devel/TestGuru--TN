@@ -1,2 +1,0 @@
-class Queston < ApplicationRecord
-end

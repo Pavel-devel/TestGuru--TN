@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :tests
 
-  def test_level(level)
+  def list_test_by_level(level)
     tests.level(level)
   end
 end
