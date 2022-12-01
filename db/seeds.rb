@@ -18,25 +18,25 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { title: 'Route - 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
-  { title: 'Route - 2', level: 2, category_id: categories[1].id, author_id: users[1].id },
-  { title: 'Route - 3', level: 3, category_id: categories[2].id, author_id: users[2].id }
+  { title: 'Route - 1', level: 1, category: categories[0], author: users[0] },
+  { title: 'Route - 2', level: 2, category: categories[1], author: users[1] },
+  { title: 'Route - 3', level: 3, category: categories[2], author: users[2] }
 ])
 
 questions = Question.create!([
-  { title: 'Do you have a cargo category license?', correct: true, test_id: tests[0].id },
-  { title: 'Do you have a passenger category license?', correct: true, test_id: tests[1].id },
-  { title: 'Do you have a cars category license?', correct: true, test_id: tests[2].id }
+  { title: 'Do you have a cargo category license?', correct: true, test: tests[0] },
+  { title: 'Do you have a passenger category license?', correct: true, test: tests[1] },
+  { title: 'Do you have a cars category license?', correct: true, test: tests[2] }
 ])
 
 answers = Answer.create!([
-  { title: 'I have cargo license', question_id: questions[0].id },
-  { title: 'I have passenger license', question_id: questions[1].id },
-  { title: 'I have cars license', question_id: questions[2].id }
+  { title: 'I have cargo license', question: questions[0] },
+  { title: 'I have passenger license', question: questions[1] },
+  { title: 'I have cars license', question: questions[2] }
 ])
 
 tests_users = TestsUser.create!([
-  { test_id: tests[0].id, user_id: users[0].id },
-  { test_id: tests[1].id, user_id: users[1].id },
-  { test_id: tests[2].id, user_id: users[2].id }
+  { test: tests[0], user: users[0] },
+  { test: tests[1], user: users[1] },
+  { test: tests[2], user: users[2] }
 ])
