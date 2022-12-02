@@ -8,7 +8,7 @@ class Test < ApplicationRecord
 
   def self.list_test_by_category(category)
     joins(:category)
-      .where(categories: { title: category })
+      .where(categories: { title: category } )
       .order(title: :desc)
       .pluck(:title)
   end  
