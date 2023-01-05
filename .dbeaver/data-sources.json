@@ -1,0 +1,32 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-18559b6e2dd-f7b017992427751": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "test_guru",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "9490",
+				"database": "test_guru",
+				"url": "jdbc:postgresql://localhost:9490/test_guru",
+				"configurationType": "MANUAL",
+				"home": "/home/foma/Документы/RORthinknetiks/test-guru",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

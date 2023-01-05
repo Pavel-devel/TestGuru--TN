@@ -12,9 +12,9 @@ users = User.create!([
 ])
 
 categories = Category.create!([
-  { title: :Cargo },
-  { title: :Passenger },
-  { title: :Cars } 
+  { title: 'Cargo' },
+  { title: 'Passenger' },
+  { title: 'Cars' } 
 ])
 
 tests = Test.create!([
