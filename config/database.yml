@@ -4,19 +4,16 @@ default: &default
   encoding: unicode                                                                  
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  port: 9490
-  username: postgres
+  port: 5432
+  username: tn_db_postgres
   password: 123
 
 development:
   <<: *default
   adapter: postgresql
-  database: test_guru
+  database: test_guru_develop
 
 test:
-  <<: *default                                                                       
-  database: test-guru_test
-
-production:
-  <<: *default                                                                       
-  database: test-guru_production
+  <<: *default
+  adapter: postgresql
+  database: test_guru_test
