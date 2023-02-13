@@ -5,7 +5,7 @@ RSpec.describe Question, type: :model do
     should belong_to :test
   end
 
-  it 'has many to answers' do
+  it 'has many answers' do
     should have_many :answers
   end
 end
