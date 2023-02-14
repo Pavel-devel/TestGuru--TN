@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -27,8 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
-    t.boolean "correct", default: true, null: false
-    t.integer "test_id", null: false
+    t.boolean "correct", default: false, null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -37,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0
-    t.integer "category_id", null: false
-    t.integer "author_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
@@ -46,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
   end
 
   create_table "tests_users", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_tests_users_on_test_id"
