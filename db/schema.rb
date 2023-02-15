@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
 
   create_table "answers", force: :cascade do |t|
     t.string "title", null: false
+    t.boolean "correct", default: false, null: false
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,7 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_16_160247) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
-    t.boolean "correct", default: false, null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
