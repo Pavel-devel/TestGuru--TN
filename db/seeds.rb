@@ -1,51 +1,69 @@
 # frozen_string_literal: true
 
 users = User.create([
-                      { name: 'User - 1' },
-                      { name: 'User - 2' },
-                      { name: 'User - 3' }
+                      { name: 'Pavel', email: 'pavel@gmail.com', password: 'passwordPavel' },
+                      { name: 'Andrew', email: 'andrew@gmail.com', password: 'passwordAndrew' },
+                      { name: 'Masha', email: 'masha@gmail.com', password: 'passwordMasha' }
                     ])
 
 categories = Category.create([
-                               { title: 'Category - 1' },
-                               { title: 'Category - 2' },
-                               { title: 'Category - 3' }
+                               { title: 'No learning experience' },
+                               { title: 'Average learning experience' },
+                               { title: 'Great learning experience' }
                              ])
 
 tests = Test.create([
-                      { title: 'Test - 1', level: 1,
+                      { title: 'A1 — Beginner', level: 1,
                         category: categories[0], author: users[0] },
-                      { title: 'Test - 2', level: 2,
+                      { title: 'B1 — Intermediate', level: 2,
                         category: categories[1], author: users[1] },
-                      { title: 'Test - 3', level: 3,
-                        category: categories[2], author: users[2] },
-                      { title: 'Test - 4', level: 4,
-                        category: categories[0], author: users[0] },
-                      { title: 'Test - 5', level: 5,
-                        category: categories[1], author: users[1] },
-                      { title: 'Test - 6', level: 6,
-                        category: categories[2], author: users[2] },
-                      { title: 'Test - 7', level: 7,
-                        category: categories[0], author: users[0] }
+                      { title: 'C1 — Advanced', level: 3,
+                        category: categories[2], author: users[2] }
                     ])
 
 questions = Question.create([
-                              { title: 'Question - 1', test: tests[0] },
-                              { title: 'Question - 2', test: tests[1] },
-                              { title: 'Question - 3', test: tests[2] },
-                              { title: 'Question - 4', test: tests[3] },
-                              { title: 'Question - 5', test: tests[4] },
-                              { title: 'Question - 6', test: tests[5] },
-                              { title: 'Question - 7', test: tests[6] }
+                              { body: 'What is your first name?',
+                                test: tests[0] },
+                              { body: 'How old are you?',
+                                test: tests[0] },
+                              { body: 'Experts say that well have to change jobs more often in the future?',
+                                test: tests[1] },
+                              { body: 'Are you optimistic about the future?',
+                                test: tests[1] },
+                              { body: 'Whats the difference between "to take an exam" and " to pass an exam" ?',
+                                test: tests[2] },
+                              { body: 'What is the basic difference between poetry and prose?',
+                                test: tests[2] }
                             ])
 Answer.create([
-                { title: 'Answer - 1', correct: true, question: questions[0] },
-                { title: 'Answer - 2', correct: true, question: questions[1] },
-                { title: 'Answer - 3', correct: true, question: questions[2] },
-                { title: 'Answer - 4', correct: true, question: questions[3] },
-                { title: 'Answer - 5', correct: true, question: questions[4] },
-                { title: 'Answer - 6', correct: true, question: questions[5] },
-                { title: 'Answer - 7', correct: true, question: questions[6] }
+                { body: 'My name is Sergey',
+                  correct: true, question: questions[0] },
+                { body: 'I dont now',
+                  correct: true, question: questions[0] },
+                { body: 'I am eleven',
+                  correct: true, question: questions[1] },
+                { body: 'I dont now',
+                  correct: true, question: questions[1] },
+                { body: 'Most likely, awareness will come, and I will understand what I want more',
+                  correct: true, question: questions[2] },
+                { body: 'Maybe I wont have a choice',
+                  correct: true, question: questions[2] },
+                { body: 'I will have a person next to me who will guide me',
+                  correct: true, question: questions[2] },
+                { body: 'I dont now',
+                  correct: true, question: questions[2] },
+                { body: ' Yes, I am optimistic',
+                  correct: true, question: questions[3] },
+                { body: 'I dont now',
+                  correct: true, question: questions[3] },
+                { body: 'To pass an exam means to take the exam and receive a passing grade',
+                  correct: true, question: questions[4] },
+                { body: 'I dont now',
+                  correct: true, question: questions[4] },
+                { body: 'The difference in the freedom to fly fantasy',
+                  correct: true, question: questions[5] },
+                { body: 'I dont now',
+                  correct: true, question: questions[5] }
               ])
 
 TestsUser.create([

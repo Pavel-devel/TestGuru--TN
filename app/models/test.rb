@@ -13,10 +13,15 @@ class Test < ApplicationRecord
   scope :average_level, -> { where(level: 2..4) }
   scope :difficult_level, -> { where(level: 5..Float::INFINITY) }
 
-  def list_test_by_category(category)
+  scope :all_with_category, ->(category) {
     joins(:category)
       .where(categories: { title: category })
-      .order(title: :desc)
+      .order(title: :asc)
       .pluck(:title)
-  end
+  }
+
+  validates :title, presence: true, uniqueness: true
+  validates :level, uniqueness: true,
+                    numericality: { greater_than_or_equal_to: 0,
+                                    only_integer: true }
 end
