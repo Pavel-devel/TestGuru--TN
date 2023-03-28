@@ -1,26 +1,15 @@
-<h1>Questions</h1>
+<h1>List of <%= @test.title %> test questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Test</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @questions.each do |question| %>
-    <tr>
-      <td><%= question.test_id %></td>
-      <td><%= question.body %></td>
-      <td><%= link_to "Show", question %></td>
-      <td><%= link_to "Destroy", question, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
-    </tr>
+<ul>
+  <% @test.questions.each do |question| %>
+    <li>
+      <%= question.body %>
+      <%= link_to "Destroy", question, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </li>
   <% end %>
-  </tbody>
-</table>
+</ul>
+<%= link_to "Add question in #{@test.title}", new_test_question_path %>
 
-<br>
+<br><br>
 
-<%= link_to "New question", new_test_question_path %>
+<%= link_to "Back", tests_path %>
