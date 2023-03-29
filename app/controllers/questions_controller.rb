@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   def show; end
 
   def new
-    @question = Question.new(test_id: @test.id)
+    @question = @test.questions.build
   end
 
   def create
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to '/'
+    redirect_to root_path
   end
 
   private
