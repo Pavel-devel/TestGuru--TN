@@ -1,0 +1,28 @@
+<h1>Create new test</h1>
+
+<%= form_with model: @test, local: true do |form| %>
+  <%= render 'shared/errors', resource: @test %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :level %><br>
+    <%=form.number_field :level %>
+
+  <p>
+    <%= form.label :category_id %><br>
+    <%=form.number_field :category_id %>
+  </p>
+
+  <p>
+    <%= form.label :author_id %><br>
+    <%=form.number_field :author_id %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
+
+<%= link_to "Back all tests", tests_path %>

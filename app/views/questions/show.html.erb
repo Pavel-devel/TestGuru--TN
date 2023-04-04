@@ -1,8 +1,7 @@
 <h2>Question</h2>
 
-<p>
-  Test: <b><%= @question.body %></b>
-</p>
-<p><%= @question.test_id %></p>
+<p>Id:   <%= @question.id %></p>
+<p>Body: <%= @question.body %></p>
+<p>Test: <%= @question.test_id %></p>
 
-<p><%= link_to 'All question', test_questions_path %></p>
+<%= link_to "Back", test_questions_path(@question.test) %>
