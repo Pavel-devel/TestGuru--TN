@@ -1,11 +1,12 @@
 class TestsController < ApplicationController
 
   before_action :find_test, only: %i[edit show update destroy]
-  def index
-    @tests = Test.all
-  end
+  before_action :find_tests, only: %i[index]
+  def index; end
 
-  def show; end
+  def show
+    @questions = @test.questions
+  end
 
   def edit; end
 
@@ -43,5 +44,9 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
+  end
+
+  def find_tests
+    @tests = Test.all
   end
 end
