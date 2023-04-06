@@ -1,14 +1,14 @@
 class TestsController < ApplicationController
 
   before_action :find_test, only: %i[edit show update destroy]
-  before_action :find_tests, only: %i[index]
-  def index; end
+
+  def index
+    @tests = Test.all
+  end
 
   def show
     @questions = @test.questions
   end
-
-  def edit; end
 
   def new
     @test = Test.new
@@ -22,6 +22,8 @@ class TestsController < ApplicationController
       render :new
     end
   end
+
+  def edit; end
 
   def update
     if @test.update(test_params)
