@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[new create index show]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[new create]
+  before_action :find_question, only: %i[show edit destroy update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-  def index; end
-
   def show; end
+
+  def edit; end
 
   def new
     @question = @test.questions.build
@@ -14,9 +14,17 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to test_questions_path(@test)
+      redirect_to test_path(@test)
     else
       render :new
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
     end
   end
 
